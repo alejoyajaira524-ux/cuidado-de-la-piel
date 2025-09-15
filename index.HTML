@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&N Care - Guía Completa de Cuidado de la Piel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #1e3a8a;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            min-height: 100vh;
+            font-weight: 400;
+        }
+        
+        #container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .brand-header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa, #f59e0b);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            background: radial-gradient(circle, #3b82f6, #1d4ed8, #1e40af, #f59e0b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+            position: relative;
+        }
+        
+        .logo-image::before {
+            content: '🌸';
+            font-size: 80px;
+        }
+        
+        .brand-header h1 {
+            font-size: 3.8em;
+            font-weight: 900;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            letter-spacing: 3px;
+        }
+        
+        .brand-header .subtitle {
+            font-size: 1.5em;
+            margin-top: 15px;
+            color: #fbbf24;
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            font-weight: 600;
+        }
+        
+        nav {
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #1e40af);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        nav a:hover, nav a.active {
+            background: rgba(251, 191, 36, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+        
+        .content-wrapper {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            padding: 50px 0;
+            min-height: 100vh;
+        }
+        
+        .main-title {
+            text-align: center;
+            color: white;
+            font-size: 3.8em;
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+            font-weight: 900;
+            padding: 0 20px;
+        }
+        
+        .content-section {
+            display: none;
+            width: 100%;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .article {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            margin: 0;
+            box-shadow: 0 2px 10px rgba(30, 64, 175, 0.1);
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            border-bottom: 3px solid #e5e7eb;
+        }
+        
+        .article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #60a5fa, #f59e0b);
+        }
+        
+        .article:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.2);
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .article h1 {
+            color: #1e40af;
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            font-weight: 800;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 15px;
+        }
+        
+        .article h2 {
+            color: #f59e0b;
+            margin: 25px 0 15px 0;
+            font-size: 1.7em;
+            font-weight: 700;
+        }
+        
+        .article p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #1f2937;
+            font-size: 1.15em;
+            font-weight: 400;
+        }
+        
+        .article ul, .article ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .article li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 1.1em;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 18px;
+            font-size: 1.3em;
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+        
+        .routine-section {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 8px solid #f59e0b;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .routine-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .routine-section h2 {
+            color: white !important;
+            margin-bottom: 18px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        
+        .routine-section ul, .routine-section ol {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1em;
+        }
+        
+        .routine-section li {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        .ingredient-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 1em;
+            margin: 6px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .ingredient-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        .empty-section {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 80px 50px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.1);
+        }
+        
+        .empty-section h1 {
+            color: #1e40af;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .empty-section p {
+            color: #6b7280;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 0;
+        }
+        
+        .emoji {
+            font-size: 1.4em;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .article, .empty-section {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav a {
+                text-align: center;
+                padding: 15px 20px;
+            }
+            
+            .brand-header h1 {
+                font-size: 2.8em;
+            }
+            
+            .main-title {
+                font-size: 2.8em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand-header h1 {
+                font-size: 2.5em;
+            }
+            
+            .main-title {
+                font-size: 2.5em;
+            }
+            
+            .article, .empty-section {
+                padding: 25px;
+                margin: 5px;
+            }
+        }
+        
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+        
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 0.9em;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="brand-header">
+            <div class="logo-container">
+                <div class="logo-image"></div>
+                <h1>S&N Care</h1>
+                <p class="subtitle">BRILLA CON CONFIANZA</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('inicio')" class="nav-link active">🏠 Inicio</a></li>
+                <li><a href="#" onclick="showSection('rutinas')" class="nav-link">📋 Rutinas</a></li>
+                <li><a href="#" onclick="showSection('productos')" class="nav-link">🧴 Productos</a></li>
+                <li><a href="#" onclick="showSection('consejos')" class="nav-link">💡 Consejos</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <h1 class="main-title">🌸 GUÍA COMPLETA DE CUIDADO DE LA PIEL</h1>
+            
+            <!-- SECCIÓN INICIO -->
+            <div id="inicio" class="content-section active">
+                <article class="article">
+                    <h1><span class="step-number">1</span>¿Qué es el cuidado de la piel?</h1>
+                    <p>El cuidado de la piel es el conjunto de hábitos y productos que ayudan a mantenerla sana, protegida y con buen aspecto. Una rutina adecuada previene problemas como acné, manchas o envejecimiento prematuro.</p>
+                    <p>No se trata solo de aplicar productos, sino de crear un ritual diario que beneficie tanto tu piel como tu bienestar general. La constancia y la paciencia son claves para obtener resultados visibles.</p>
+                    
+                    <h2>🎯 Beneficios del cuidado adecuado</h2>
+                    <ul>
+                        <li>Previene el envejecimiento prematuro y mantiene la elasticidad natural</li>
+                        <li>Protege contra factores ambientales dañinos como UV y contaminación</li>
+                        <li>Mejora la textura, luminosidad y uniformidad del tono de piel</li>
+                        <li>Reduce problemas específicos como acné, manchas y sequedad</li>
+                        <li>Aumenta la confianza y bienestar personal</li>
+                    </ul>
+                    
+                    <h2>🔍 Conoce tu tipo de piel</h2>
+                    <p>Identificar correctamente tu tipo de piel es el primer paso para crear una rutina efectiva. Observa las características de tu piel limpia después de 1-2 horas sin productos:</p>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🌊</span>Piel Normal</h2>
+                        <p>Equilibrada, sin exceso de grasa ni sequedad extrema. Poros pequeños, textura suave y uniforme. No presenta brillos excesivos ni tirantez.</p>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">💧</span>Piel Seca</h2>
+                        <p>Falta de humedad, puede sentirse tirante especialmente después de la limpieza. Propensa a descamación, líneas finas y aspecto opaco.</p>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">✨</span>Piel Grasa</h2>
+                        <p>Exceso de sebo, poros dilatados y visibles, propensa a brillos y acné. El brillo aparece especialmente en la zona T (frente, nariz, mentón).</p>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🔄</span>Piel Mixta</h2>
+                        <p>Combinación de zonas grasas (zona T: frente, nariz, mentón) y zonas normales o secas (mejillas). Requiere cuidados diferenciados por zonas.</p>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🌺</span>Piel Sensible</h2>
+                        <p>Reacciona fácilmente a productos, cambios climáticos o factores externos. Presenta enrojecimiento, picazón, irritación o sensación de ardor frecuentemente.</p>
+                    </div>
+
+                    <h2>🧪 Test simple para identificar tu tipo de piel</h2>
+                    <div class="routine-section">
+                        <h2><span class="emoji">📝</span>Método del papel secante</h2>
+                        <ol>
+                            <li>Limpia tu rostro con un limpiador suave y sécalo</li>
+                            <li>Espera 1 hora sin aplicar ningún producto</li>
+                            <li>Presiona suavemente papel secante en diferentes zonas de tu cara</li>
+                            <li>Observa los resultados:
+                                <ul>
+                                    <li><strong>Poco o nada de grasa:</strong> Piel seca</li>
+                                    <li><strong>Grasa solo en zona T:</strong> Piel mixta</li>
+                                    <li><strong>Grasa en toda la cara:</strong> Piel grasa</li>
+                                    <li><strong>Poca grasa uniforme:</strong> Piel normal</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- SECCIÓN RUTINAS -->
+            <div id="rutinas" class="content-section">
+                <article class="article">
+                    <h1><span class="step-number">2</span>Los 3 pasos básicos (esenciales para todos)</h1>
+                    <p>Toda rutina de piel puede resumirse en tres pasos fundamentales:</p>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🧼</span>Limpieza</h2>
+                        <ul>
+                            <li>Elimina sudor, grasa, contaminación y maquillaje acumulados durante el día</li>
+                            <li>Se realiza en la mañana y en la noche sin excepción</li>
+                            <li>Usa productos suaves que respeten el pH natural de tu piel (5.5)</li>
+                            <li>Evita frotar agresivamente, usa movimientos circulares suaves</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">💧</span>Hidratación</h2>
+                        <ul>
+                            <li>Refuerza la barrera de la piel, evita resequedad y mantiene elasticidad</li>
+                            <li>Hay cremas ligeras para piel grasa y más densas para piel seca</li>
+                            <li>Adapta la hidratación según tu tipo de piel y las condiciones climáticas</li>
+                            <li>Aplica sobre piel húmeda para mejor absorción</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🌞</span>Protección solar</h2>
+                        <ul>
+                            <li><strong>Paso MÁS importante durante el día</strong></li>
+                            <li>Protege contra manchas, arrugas prematuras y cáncer de piel</li>
+                            <li>Se usa SIEMPRE, incluso si no hay sol visible o estás en interiores</li>
+                            <li>Reaplica cada 2-3 horas para mantener la protección efectiva</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h1><span class="step-number">3</span>Rutina completa de cuidado de la piel</h1>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🌞</span>Rutina de la mañana</h2>
+                        <ol>
+                            <li><strong>Limpieza</strong> → Retira impurezas acumuladas durante la noche</li>
+                            <li><strong>Tónico (opcional)</strong> → Equilibra el pH y prepara la piel para siguientes productos</li>
+                            <li><strong>Sérum antioxidante</strong> → Vitamina C, ácido hialurónico, niacinamida</li>
+                            <li><strong>Contorno de ojos (opcional)</strong> → Hidrata y previene ojeras/bolsas</li>
+                            <li><strong>Crema hidratante</strong> → Mantiene la piel protegida y suave todo el día</li>
+                            <li><strong>Protector solar</strong> → SPF 30 o más, OBLIGATORIO y no negociable</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🌙</span>Rutina de la noche</h2>
+                        <ol>
+                            <li><strong>Doble limpieza</strong> → Aceite/bálsamo demaquillante + gel/espuma limpiadora</li>
+                            <li><strong>Exfoliación</strong> → Solo 1-2 veces por semana, elimina células muertas</li>
+                            <li><strong>Tónico o esencia</strong> → Prepara la piel para tratamientos intensivos</li>
+                            <li><strong>Sérum de tratamiento</strong> → Retinol, antiacné, antimanchas según necesidad</li>
+                            <li><strong>Contorno de ojos (opcional)</strong> → Tratamiento específico para área delicada</li>
+                            <li><strong>Crema nutritiva o de noche</strong> → Repara la piel mientras duermes</li>
+                            <li><strong>Aceite facial (opcional)</strong> → Para piel seca o madura, sella la hidratación</li>
+                        </ol>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- SECCIÓN PRODUCTOS -->
+            <div id="productos" class="content-section">
+                <article class="article">
+                    <h1><span class="step-number">4</span>Ingredientes clave según necesidad</h1>
+                    <p>Cada tipo de piel y preocupación específica requiere ingredientes particulares. Conoce cuáles son los mejores para ti:</p>
+                    
+                    <p><strong>Para hidratar profundamente:</strong><br>
+                    <span class="ingredient-tag tooltip" data-tooltip="Retiene hasta 1000 veces su peso en agua">Ácido hialurónico</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Humectante natural que atrae la humedad">Glicerina</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Restauran la barrera protectora de la piel">Ceramidas</span></p>
+                    
+                    <p><strong>Para acné o piel grasa:</strong><br>
+                    <span class="ingredient-tag tooltip" data-tooltip="Regula la producción de sebo y reduce poros">Niacinamida</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Exfolia dentro del poro y reduce puntos negros">Ácido salicílico</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Antiinflamatorio natural para piel propensa al acné">Zinc</span></p>
+                    
+                    <p><strong>Para manchas y luminosidad:</strong><br>
+                    <span class="ingredient-tag tooltip" data-tooltip="Antioxidante potente que previene y aclara manchas">Vitamina C</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Inhibidor natural de la melanina">Ácido kójico</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Alternativa suave para pieles sensibles">Arbutina</span></p>
+                    
+                    <p><strong>Para arrugas o envejecimiento:</strong><br>
+                    <span class="ingredient-tag tooltip" data-tooltip="Estimula renovación celular y produce colágeno">Retinol</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Fragmentos de proteínas que mejoran firmeza">Péptidos</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Proteína estructural que da firmeza a la piel">Colágeno</span></p>
+                    
+                    <p><strong>Para calmar piel sensible:</strong><br>
+                    <span class="ingredient-tag tooltip" data-tooltip="Gel natural con propiedades calmantes y cicatrizantes">Aloe vera</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Antiinflamatorio natural que reduce enrojecimiento">Centella asiática</span>
+                    <span class="ingredient-tag tooltip" data-tooltip="Calmante y cicatrizante natural">Caléndula</span></p>
+                    
+                    <h2>🛍️ Cómo elegir productos</h2>
+                    <div class="routine-section">
+                        <h2>✅ Consejos para comprar</h2>
+                        <ul>
+                            <li>Lee siempre la lista de ingredientes, no solo el marketing</li>
+                            <li>Introduce un producto nuevo cada 2 semanas para identificar reacciones</li>
+                            <li>Busca productos sin fragancias si tienes piel sensible</li>
+                            <li>Los productos más caros no siempre son mejores</li>
+                            <li>Consulta reviews y estudios científicos sobre los ingredientes</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>🚫 Ingredientes a evitar</h2>
+                    <p><strong>Para piel sensible:</strong> Fragancias, alcohol desnaturalizado, sulfatos agresivos</p>
+                    <p><strong>Para piel propensa al acné:</strong> Aceites comedogénicos, ingredientes oclusivos pesados</p>
+                    <p><strong>Durante el embarazo:</strong> Retinoides, ácido salicílico en altas concentraciones</p>
+                </article>
+            </div>
+            
+            <!-- SECCIÓN CONSEJOS -->
+            <div id="consejos" class="content-section">
+                <article class="article">
+                    <h1>🌸 Consejos generales para todo tipo de piel</h1>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🎯</span>Fundamentos del cuidado facial</h2>
+                        <ul>
+                            <li><strong>Limpieza diaria:</strong> lava tu rostro 2 veces al día (mañana y noche) con un limpiador suave.</li>
+                            <li><strong>Protección solar:</strong> usa protector solar todos los días, incluso cuando esté nublado.</li>
+                            <li><strong>Hidratación:</strong> bebe suficiente agua (8 vasos aprox.) y usa crema hidratante.</li>
+                            <li><strong>Descanso:</strong> dormir entre 7–8 horas ayuda a regenerar la piel.</li>
+                            <li><strong>Alimentación balanceada:</strong> consume frutas, verduras y alimentos ricos en antioxidantes.</li>
+                            <li><strong>Evita tocar tu cara constantemente:</strong> así reduces bacterias e impurezas.</li>
+                            <li><strong>Ejercicio regular:</strong> mejora la circulación y da un brillo natural.</li>
+                            <li><strong>No abuses del maquillaje:</strong> déjale respirar a tu piel y desmaquíllate siempre.</li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="article">
+                    <h1>🌞 Consejos según el tipo de piel</h1>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🔹</span>Piel grasa</h2>
+                        <ul>
+                            <li>Usa limpiadores en gel o espumas suaves.</li>
+                            <li>Prefiere cremas hidratantes oil-free.</li>
+                            <li>Evita frotar demasiado la piel (puede estimular más grasa).</li>
+                            <li>Mascarillas de arcilla una o dos veces por semana.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🔹</span>Piel seca</h2>
+                        <ul>
+                            <li>Usa limpiadores cremosos y suaves.</li>
+                            <li>Aplica crema hidratante rica en ácido hialurónico o manteca de karité.</li>
+                            <li>Evita duchas muy calientes (resecan más la piel).</li>
+                            <li>Usa aceites faciales ligeros como el de jojoba o almendra.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🔹</span>Piel mixta</h2>
+                        <ul>
+                            <li>Limpieza suave, sin resecar.</li>
+                            <li>Hidrata las zonas secas y controla brillo en la zona T con productos ligeros.</li>
+                            <li>Exfoliación suave 1 vez por semana.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">🔹</span>Piel sensible</h2>
+                        <ul>
+                            <li>Usa productos sin fragancia ni alcohol.</li>
+                            <li>Prefiere limpiadores suaves tipo syndet (sin jabón fuerte).</li>
+                            <li>Hidrata con cremas calmantes (con aloe vera o avena).</li>
+                            <li>Evita cambios bruscos de temperatura.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h1>🌿 Hábitos que ayudan</h1>
+                    
+                    <div class="routine-section">
+                        <h2><span class="emoji">✨</span>Hábitos saludables para tu piel</h2>
+                        <ul>
+                            <li><strong>No fumar</strong> (afecta elasticidad y envejece la piel).</li>
+                            <li><strong>No reventar granitos,</strong> ya que deja cicatrices.</li>
+                            <li><strong>Usar toalla exclusiva para la cara.</strong></li>
+                            <li><strong>Renovar fundas de almohada</strong> al menos 1 vez por semana.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 S&N Care. Todos los derechos reservados. | BRILLA CON CONFIANZA 🌸</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Mostrar la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Actualizar estado activo en navegación
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            // Encontrar y activar el enlace correcto
+            const activeLink = document.querySelector(`a[onclick="showSection('${sectionId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+        
+        // Mostrar la sección inicial al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('inicio');
+        });
+    </script>
+</body>
+</html>
